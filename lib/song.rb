@@ -20,12 +20,13 @@ class Song
 
    def self.create_by_name(song_name)	
     song = self.create	
-    song.name = song_name	
+    song.name = song_name
     song
   end	
 
    def self.find_by_name(song_name)	
-    self.all.find{|song| song.name == song_name}	
+    self.all.detect{|song| song.name == song_name}	
+    #can do .find instead of .detect, detect returns nil
   end	
 
    def self.find_or_create_by_name(song_name)	
